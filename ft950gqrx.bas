@@ -20,35 +20,34 @@
 'v0.2.4
 
 '########### User Configuration ############
-Dim SerialPort as String = "/dev/ttyUSB0"
-Dim SerialSpeed as String = "38400"
-Dim SerialParity as String = "N"
-Dim SerialDataBits as String = "8"
-Dim SerialStopBits as String = "2"
+Dim SerialPort As String = "/dev/ttyUSB0"
+Dim SerialSpeed As String = "38400"
+Dim SerialParity As String = "N"
+Dim SerialDataBits As String = "8"
+Dim SerialStopBits As String = "2"
 
-Dim GQRXHost as String = "localhost"
-Dim GQRXPort as UShort = 7356
+Dim GQRXHost As String = "localhost"
+Dim GQRXPort As UShort = 7356
 
-Dim IFFrequency as Long = 69450000
+Dim IFFrequency As Long = 69450000
 '###########################################
 
-Dim G_Client_TSNEID as UInteger
+Dim G_Client_TSNEID As UInteger
+Dim cmdStr As String
+Dim adat As String * 1
+Dim Freq As String
+Dim Shared NetID As UInteger
 
-DIM cmdStr as String
-DIM adat as String * 1
-Dim Freq as String
-Dim Shared NetID as UInteger
-
-Sub TSNE_Disconnected(ByVal V_TSNEID as UInteger)
+sub TSNE_Disconnected(ByVal V_TSNEID As UInteger)
 	Print "Telnet disconnected."
-End Sub
+End sub
 
-Sub TSNE_Connected(ByVal V_TSNEID as UInteger)
+sub TSNE_Connected(ByVal V_TSNEID As UInteger)
 	Print "Telnet connected."
 	NetID = V_TSNEID
-End Sub
+End sub
 
-Sub TSNE_NewData(ByVal V_TSNEID as UInteger, ByRef V_Data as String)
+sub TSNE_NewData(ByVal V_TSNEID As UInteger, ByRef V_Data As String)
 	' Not used yet.
 End Sub
 
